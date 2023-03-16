@@ -3,6 +3,8 @@
 *.freezed.dart
 
 # Miscellaneous
+*.iml
+**/*.iml
 *.class
 *.log
 *.pyc
