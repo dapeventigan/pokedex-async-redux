@@ -5,10 +5,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: This will be placed in a constant later.
     return const MaterialApp(
       home: Scaffold(
         body: Center(
+          //TODO: This will be placed in a constant later.
           child: Text('Home Page'),
         ),
       ),
