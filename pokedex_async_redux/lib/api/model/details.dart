@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'models.dart';
 
-part 'pokemon_details.freezed.dart';
-part 'pokemon_details.g.dart';
+part 'details.freezed.dart';
+part 'details.g.dart';
 
 @freezed
 class PokemonDetails with _$PokemonDetails {

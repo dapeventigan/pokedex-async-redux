@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pokedex_async_redux/api/model/stats_details.dart';
 
-part 'pokemon_stats.freezed.dart';
-part 'pokemon_stats.g.dart';
+part 'stats.freezed.dart';
+part 'stats.g.dart';
 
 @freezed
 class PokemonStats with _$PokemonStats {
@@ -11,14 +12,4 @@ class PokemonStats with _$PokemonStats {
   }) = _PokemonStats;
 
   factory PokemonStats.fromJson(Map<String, dynamic> json) => _$PokemonStatsFromJson(json);
-}
-
-@freezed
-class StatsDetails with _$StatsDetails {
-  const factory StatsDetails({
-    @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'url') required String url,
-  }) = _StatsDetails;
-
-  factory StatsDetails.fromJson(Map<String, dynamic> json) => _$StatsDetailsFromJson(json);
 }

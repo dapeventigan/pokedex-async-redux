@@ -1,16 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'pokemon_abilities.freezed.dart';
-part 'pokemon_abilities.g.dart';
-
-@freezed
-class PokemonAbilities with _$PokemonAbilities {
-  const factory PokemonAbilities({
-    @JsonKey(name: 'ability') required AbilityDetails ability,
-  }) = _PokemonAbilities;
-
-  factory PokemonAbilities.fromJson(Map<String, dynamic> json) => _$PokemonAbilitiesFromJson(json);
-}
+part 'ability_details.freezed.dart';
+part 'ability_details.g.dart';
 
 @freezed
 class AbilityDetails with _$AbilityDetails {
