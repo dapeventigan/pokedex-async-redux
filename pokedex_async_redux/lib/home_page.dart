@@ -1,7 +1,7 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_async_redux/state/action/pokemon_actions.dart';
-import 'package:pokedex_async_redux/utility/string_constant.dart';
+import 'package:pokedex_async_redux/utilities/string_constant.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

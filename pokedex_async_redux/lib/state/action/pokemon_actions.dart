@@ -4,7 +4,7 @@ import 'package:async_redux/async_redux.dart';
 import 'package:pokedex_async_redux/api/api_service.dart';
 import 'package:pokedex_async_redux/state/app_state.dart';
 
-import '../../utility/string_constant.dart';
+import '../../utilities/string_constant.dart';
 
 /// Setting of pokemons from pokemon api
 class GetPokemonsAction extends ReduxAction<AppState> {
