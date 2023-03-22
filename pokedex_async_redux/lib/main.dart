@@ -15,6 +15,9 @@ Future<void> main() async {
 //TODO: Will remove this. Used for debugging purposes
   final pokemons = await ApiService().pokemonApi.getPokemonList(offset: '0', limit: '151');
   pokemons;
+//TODO: Will remove this. Used for debugging purposes
+  final pokemonDetails = await ApiService().pokemonApi.getPokemonDetails(pokemonName: "charizard");
+  pokemonDetails;
 
   runApp(
     StoreProvider(
