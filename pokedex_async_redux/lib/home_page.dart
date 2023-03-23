@@ -8,7 +8,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: This will be removed later
     StoreProvider.dispatch(context, GetPokemonsAction());
+    StoreProvider.dispatch(context, GetPokemonDetailsAction(pokemonName: pokemonNameInput));
 
     return const MaterialApp(
       home: Scaffold(
