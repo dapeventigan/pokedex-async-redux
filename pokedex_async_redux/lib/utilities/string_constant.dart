@@ -5,3 +5,4 @@ const pokemonActionOffset = "0";
 const pokemonActionLimit = "151";
 const homePageTitle = "Home Page";
 const pokemonImageUri = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/";
+const pokemonNameInput = 'charizard';

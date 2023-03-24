@@ -10,6 +10,7 @@ class AppState with _$AppState {
     // TODO: this will be removed
     @Default('') String sample,
     @Default(<Pokemon>[]) List<Pokemon> pokemons,
+    @Default(null) PokemonDetails? pokemonDetails,
   }) = _AppState;
 
   factory AppState.fromJson(Map<String, dynamic> json) => _$AppStateFromJson(json);
