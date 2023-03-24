@@ -18,7 +18,8 @@ class PokemonOverviewGridview extends StatelessWidget {
       itemBuilder: (context, index) {
         final pokemon = pokemons[index];
         final pokemonIndex = index + numberOne;
-        final String pokemonImageUrlPath = "$pokemonImageUri/$pokemonIndex.png";
+        final String pokemonImageUrlPath =
+            pokemonImageUri.replaceAll(RegExp(r'\[index\]'), '$pokemonIndex') + pokemonImageExtention;
         return Card(
           child: Padding(
             padding: cardOverviewPadding,
