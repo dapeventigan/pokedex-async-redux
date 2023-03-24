@@ -1,3 +1,10 @@
-export 'custom_constant.dart';
-export 'int_constant.dart';
-export 'string_constant.dart';
+const appBarTitle = "Pokedex";
+const pokemonActionOffset = "0";
+const pokemonActionLimit = "151";
+const homePageTitle = "Home Page";
+const pokemonNameInput = 'charizard';
+const urlSplitter = '/';
+const idIndex = 6;
+const indexValue = '[index]';
+const pokemonImageUri =
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/[index].png";
