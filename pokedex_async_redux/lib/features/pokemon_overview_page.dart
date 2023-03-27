@@ -21,11 +21,10 @@ class PokemonOverviewPage extends StatelessWidget {
         backgroundColor: appDefaultColor,
       ),
       body: pokemons.when(
-        loading: () => const Center(
-          child: CircularProgressIndicator(color: appDefaultColor),
-        ),
+        loading: () => const Center(child: CircularProgressIndicator(color: appDefaultColor)),
         error: (errorMessage) {
-          WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage!));
+          WidgetsBinding.instance
+              .addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage ?? emptyString));
           return const Center(child: Text(noPokemonsAvailable));
         },
         (data) => Center(
