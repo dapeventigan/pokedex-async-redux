@@ -15,38 +15,27 @@ class PokemonOverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Builder(
-        builder: (BuildContext context) => Scaffold(
-          appBar: AppBar(
-            title: const Text(appBarTitle),
-            backgroundColor: appDefaultColor,
-          ),
-          body: pokemons.when(
-            loading: () => const Center(
-              child: CircularProgressIndicator(
-                color: appDefaultColor,
-              ),
-            ),
-            error: (errorMessage) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                (_) => _showErrorMessageSnackbar(context, errorMessage!),
-              );
-              return const Center(
-                child: Text(noPokemonAvailable),
-              );
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(appBarTitle),
+        backgroundColor: appDefaultColor,
+      ),
+      body: pokemons.when(
+        loading: () => const Center(
+          child: CircularProgressIndicator(color: appDefaultColor),
+        ),
+        error: (errorMessage) {
+          WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage!));
+          return const Center(child: Text(noPokemonAvailable));
+        },
+        (data) => Center(
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              final pokemon = data[index];
+              return PokemonCard(pokemon: pokemon);
             },
-            (data) => Center(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                itemCount: data.length,
-                itemBuilder: (context, index) {
-                  final pokemon = data[index];
-                  return PokemonCard(pokemon: pokemon);
-                },
-              ),
-            ),
           ),
         ),
       ),
