@@ -13,3 +13,4 @@ const pokemonImageUri =
 const noInternetText = "No Internet Connection";
 const errorCircleIcon = Icons.error_outline;
 const asyncErrorMessage = 'Cannot get pokemon data';
+const pokemonActionKey = 'get pokemon action';
