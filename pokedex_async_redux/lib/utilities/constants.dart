@@ -14,4 +14,5 @@ const pokemonImageUri =
 const noInternetText = "No Internet Connection";
 const errorCircleIcon = Icons.error_outline;
 const noPokemonAvailable = 'No Pokemon Available';
+const errorMessage = 'Something went wrong!';
 const pokemonActionKey = 'get pokemon action';
