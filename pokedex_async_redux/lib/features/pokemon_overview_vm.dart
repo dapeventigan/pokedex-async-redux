@@ -1,16 +1,26 @@
+import 'package:pokedex_async_redux/utilities/async.dart';
+import 'package:pokedex_async_redux/utilities/constants.dart';
 import 'package:pokedex_async_redux/api/model/models.dart';
+import 'package:pokedex_async_redux/state/action/pokemon_actions.dart';
 import 'package:pokedex_async_redux/state/app_state.dart';
 import 'package:async_redux/async_redux.dart';
 
 class PokemonOverviewVmFactory extends VmFactory<AppState, PokemonOverviewVmFactory> {
   @override
-  Vm fromStore() => PokemonOverviewVm(pokemons: _pokemons);
+  Vm fromStore() => PokemonOverviewVm(pokemons: _pokemons());
 
-  List<Pokemon> get _pokemons => state.pokemons;
+  Async<List<Pokemon>> _pokemons() {
+    if (state.wait.isWaitingFor(GetPokemonsAction.key)) return const Async.loading();
+    if (state.pokemons.isEmpty) return const Async.error(asyncErrorMessage);
+
+    return Async(state.pokemons);
+  }
 }
 
 class PokemonOverviewVm extends Vm {
-  PokemonOverviewVm({required this.pokemons}) : super(equals: [pokemons]);
+  PokemonOverviewVm({
+    required this.pokemons,
+  }) : super(equals: [pokemons]);
 
-  final List<Pokemon> pokemons;
+  final Async<List<Pokemon>> pokemons;
 }
