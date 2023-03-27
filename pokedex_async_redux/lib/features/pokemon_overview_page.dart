@@ -26,7 +26,7 @@ class PokemonOverviewPage extends StatelessWidget {
         ),
         error: (errorMessage) {
           WidgetsBinding.instance.addPostFrameCallback((_) => _showErrorMessageSnackbar(context, errorMessage!));
-          return const Center(child: Text(noPokemonAvailable));
+          return const Center(child: Text(noPokemonsAvailable));
         },
         (data) => Center(
           child: GridView.builder(
