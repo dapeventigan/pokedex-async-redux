@@ -14,11 +14,9 @@ class PokemonOverviewPage extends StatelessWidget {
   final Async<List<Pokemon>> pokemons;
 
   void _showErrorMessageSnackbar(BuildContext context, String message) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(message),
-        ),
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
       ),
     );
   }
@@ -40,7 +38,9 @@ class PokemonOverviewPage extends StatelessWidget {
               ),
             ),
             error: (errorMessage) {
-              _showErrorMessageSnackbar(context, errorMessage!);
+              WidgetsBinding.instance.addPostFrameCallback(
+                (_) => _showErrorMessageSnackbar(context, errorMessage!),
+              );
               return const Center(
                 child: Text(noPokemonAvailable),
               );
