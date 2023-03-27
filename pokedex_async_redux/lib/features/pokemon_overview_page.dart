@@ -13,14 +13,6 @@ class PokemonOverviewPage extends StatelessWidget {
 
   final Async<List<Pokemon>> pokemons;
 
-  void _showErrorMessageSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -58,6 +50,12 @@ class PokemonOverviewPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _showErrorMessageSnackbar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
     );
   }
 }
