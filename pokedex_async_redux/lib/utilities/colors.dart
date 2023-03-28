@@ -1,3 +1,5 @@
 import 'package:flutter/material.dart';
 
 const appDefaultColor = Color.fromARGB(255, 13, 39, 83);
+const colorWhite = Colors.white;
+const colorBlack = Colors.black;
