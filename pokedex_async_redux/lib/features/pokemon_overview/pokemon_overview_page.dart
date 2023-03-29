@@ -1,5 +1,5 @@
 import 'package:pokedex_async_redux/api/model/models.dart';
-import 'package:pokedex_async_redux/features/widget/pokemon_overview_page_card.dart';
+import 'package:pokedex_async_redux/features/pokemon_overview/widget/pokemon_overview_page_card.dart';
 import 'package:pokedex_async_redux/utilities/async.dart';
 import 'package:pokedex_async_redux/utilities/colors.dart';
 import 'package:pokedex_async_redux/utilities/constants.dart';
