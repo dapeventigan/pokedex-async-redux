@@ -1,5 +1,6 @@
 import 'package:dartx/dartx.dart';
 import 'package:pokedex_async_redux/api/model/details.dart';
+import 'package:pokedex_async_redux/api/model/pokemon.dart';
 import 'package:pokedex_async_redux/features/pokemon_details/widget/pokemon_ability.dart';
 import 'package:pokedex_async_redux/features/pokemon_details/widget/pokemon_general.dart';
 import 'package:pokedex_async_redux/features/pokemon_details/widget/pokemon_moves.dart';
@@ -10,18 +11,20 @@ import 'package:pokedex_async_redux/utilities/constants.dart';
 import 'package:flutter_icons_null_safety/flutter_icons_null_safety.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_async_redux/utilities/spacing.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
   const PokemonDetailsPage({
-    required this.pokemonDetails,
-    required this.pokeName,
+    required this.pokemons,
     required this.pokemonImage,
+    required this.pokemonDetails,
     Key? key,
   }) : super(key: key);
 
-  final Async<PokemonDetails> pokemonDetails;
-  final String pokeName;
+  final Pokemon pokemons;
   final String pokemonImage;
+  final Async<PokemonDetails> pokemonDetails;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,17 +43,17 @@ class PokemonDetailsPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 30),
+                const VerticalSpace(height: 30.0),
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(MaterialCommunityIcons.pokemon_go, color: appDefaultColor),
-                      const SizedBox(width: 8),
+                      const HorizontalSpace(width: 8.0),
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Text(
-                          pokeName.capitalize(),
+                          pokemons.name.capitalize(),
                           style: GoogleFonts.vt323(
                             fontSize: 24,
                             color: appDefaultColor,
@@ -60,7 +63,7 @@ class PokemonDetailsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 10),
+                const VerticalSpace(height: 10.0),
                 Container(
                   width: 150,
                   height: 150,
@@ -127,8 +130,6 @@ class PokemonDetailsPage extends StatelessWidget {
   }
 
   void _showErrorMessageSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 }

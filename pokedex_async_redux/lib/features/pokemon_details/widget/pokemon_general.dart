@@ -15,9 +15,10 @@ class GeneralDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String roundedDetailValue = detailValue.toString().split(".").first;
     return Chip(
       label: Text(
-        "$detailName: ${detailValue.toString().split(".").first} $detailType",
+        "$detailName: $roundedDetailValue $detailType",
         style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,

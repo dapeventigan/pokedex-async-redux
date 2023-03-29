@@ -16,14 +16,14 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final pokemonId = pokemon.url.split(urlSplitter)[idIndex];
     final String pokemonImageUrlPath = pokemonImageUri.replaceAll(indexValue, pokemonId);
+    pokemon;
 
     return Card(
       child: InkWell(
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) =>
-                  PokemonDetailsConnector(pokemonName: pokemon.name, pokemonImage: pokemonImageUrlPath)),
+              builder: (_) => PokemonDetailsConnector(pokemons: pokemon, pokemonImage: pokemonImageUrlPath)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(15),

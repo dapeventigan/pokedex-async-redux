@@ -11,7 +11,7 @@ class MovesView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final List<PokemonMoves>? moves;
+  final List<PokemonMoves> moves;
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +45,10 @@ class MovesView extends StatelessWidget {
                   crossAxisCount: 3,
                   childAspectRatio: 3,
                 ),
-                itemCount: moves?.length,
+                itemCount: moves.length,
                 itemBuilder: (context, index) {
-                  final move = moves?[index].move;
-                  return Chip(label: Text(move?.name.capitalize() ?? emptyString));
+                  final move = moves[index].move;
+                  return Chip(label: Text(move.name.capitalize()));
                 },
               ),
             ),

@@ -11,7 +11,7 @@ class StatsView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final List<PokemonStats>? stats;
+  final List<PokemonStats> stats;
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +47,14 @@ class StatsView extends StatelessWidget {
                     crossAxisCount: 2,
                     childAspectRatio: 8,
                   ),
-                  itemCount: stats?.length,
+                  itemCount: stats.length,
                   itemBuilder: (context, index) {
-                    final stat = stats?[index].stat;
-                    final baseStat = stats?[index].baseStat;
+                    final stat = stats[index].stat;
+                    final baseStat = stats[index].baseStat;
+                    final statNameCapitalize = stat.name.capitalize();
+                    final roundedBaseStat = baseStat.toString().split('.').first;
                     return Text(
-                      "${stat?.name.capitalize()} : ${baseStat.toString().split('.').first}",
+                      "$statNameCapitalize : $roundedBaseStat",
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     );
                   },

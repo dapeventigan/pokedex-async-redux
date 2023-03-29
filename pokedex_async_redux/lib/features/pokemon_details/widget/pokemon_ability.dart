@@ -11,7 +11,7 @@ class AbilityView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final List<PokemonAbilities>? abilities;
+  final List<PokemonAbilities> abilities;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +43,10 @@ class AbilityView extends StatelessWidget {
                 crossAxisCount: 2,
                 childAspectRatio: 4,
               ),
-              itemCount: abilities?.length,
+              itemCount: abilities.length,
               itemBuilder: (context, index) {
-                final ability = abilities?[index].ability;
-                return Chip(label: Text(ability?.name.capitalize() ?? emptyString));
+                final ability = abilities[index].ability;
+                return Chip(label: Text(ability.name.capitalize()));
               },
             ),
           ),
