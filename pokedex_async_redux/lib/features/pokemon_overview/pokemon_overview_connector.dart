@@ -13,7 +13,12 @@ class PokemonOverviewConnector extends StatelessWidget {
     return StoreConnector<AppState, PokemonOverviewVm>(
       vm: () => PokemonOverviewVmFactory(),
       onInit: (store) => store.dispatchAsync(GetPokemonsAction()),
-      builder: (context, vm) => PokemonOverviewPage(pokemons: vm.pokemons),
+      builder: (_, vm) => PokemonOverviewPage(
+        pokemons: vm.pokemons,
+        searchedPokemons: vm.searchedPokemons,
+        filterPokemons: vm.getFilteredPokemons,
+        clearSearchedPokemons: vm.clearSearchedPokemons,
+      ),
     );
   }
 }
