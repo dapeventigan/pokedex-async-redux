@@ -23,3 +23,5 @@ const baseExpType = "xp";
 const abilitiesText = "Abilities";
 const movesText = "Moves";
 const statsText = "Stats";
+const searchForPokemonsText = "Search for pokemons...";
+const cannotFindPokemonText = 'Cannot find pokemon ';
